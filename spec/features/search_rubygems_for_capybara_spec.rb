@@ -6,6 +6,7 @@ feature "search rubygems.org for capybara" do
     fill_in "query", with: "capybara"
     click_button "search_submit"
 
-    expect(page).to have_content("capybara")
+    # save_screenshot("rubygems_capybara.png")
+    expect(page).to have_link("capybara")
   end
 end
