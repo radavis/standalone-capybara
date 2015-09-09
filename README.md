@@ -2,6 +2,7 @@
 
 Write capybara specs for any web app, local or remote.
 
+Also useful for extracting information from a webpage. (eg- sign in, select stuff, save to file).
 
 ## Instructions
 
