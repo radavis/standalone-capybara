@@ -5,7 +5,7 @@ feature "port forwarding" do
     log_in
     find("div#option4").click() # WAN
     find("span", text: "Virtual Server / Port Forwarding").click
-    choose "Yes"
+    find("input[name='vts_enable_x'][value='1']").click # "Yes"
     click_on "Apply"
     expect(page).to have_content("Applying Settings...")
   end
