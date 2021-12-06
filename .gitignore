@@ -1,3 +1,5 @@
 .env
 *.png
 downloads/*.pdf
+downloads/*.csv
+tmp/capybara/screenshot_*
