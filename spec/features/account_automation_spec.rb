@@ -1,23 +1,26 @@
 require "spec_helper"
 
 feature "account automation" do
-  scenario "view account page, download latest statement" do
+  scenario "view accounts page", :balances do
     log_in
     screenshot_and_save_page
+    log_out
+  end
 
+  scenario "view checking account", :activity do
+    log_in
+    click_on "Checking"
+    find("h2", text: "Transaction History")
+    screenshot_and_save_page
+    log_out
+  end
+
+  scenario "download statement", :statement do
+    log_in
     click_on "Statements"
-
-    # statement links have target="_blank" attribute
-    window = nil
     within "ul.statement-list-data" do
-      window = window_opened_by { first("a").click }
+      first("a").click
     end
-
-    within_window window do
-      screenshot_and_save_page
-      puts page.response_headers["Content-Type"]
-    end
-
     log_out
   end
 end
