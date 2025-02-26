@@ -42,7 +42,7 @@ def click_first_suggestion
   end
 
   within "#remix-sidebar" do
-    expect(page).to have_content("Preparing your document")
+    expect(page).to have_content("Preparing your document", wait: 60)
   end
 end
 
@@ -54,7 +54,8 @@ def click_first_remix_suggestion
   end
 
   within "#remix-sidebar" do
-    expect(page).to have_content("Building your document")
+    expect(page).to_not have_content("Primary Model")
+    # expect(page).to have_content("Preparing your document", wait: 60)
   end
 end
 

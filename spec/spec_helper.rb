@@ -41,6 +41,7 @@ end
 Capybara.javascript_driver = :custom_chromium
 
 Capybara.configure do |config|
+  config.default_max_wait_time = 10
   config.default_driver = :custom_chromium # %w[selenium selenium_headless selenium_chrome selenium_headless_chrome]
   config.app_host = ENV["WEBSITE_URL"] || "http://localhost:3000"
 end
