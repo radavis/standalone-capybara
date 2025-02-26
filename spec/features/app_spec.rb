@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "sign in, use app" do
+feature "app" do
   scenario "user signs in, does a remix" do
     visit "/"
 
@@ -55,7 +55,6 @@ def click_first_remix_suggestion
 
   within "#remix-sidebar" do
     expect(page).to_not have_content("Primary Model")
-    # expect(page).to have_content("Preparing your document", wait: 60)
   end
 end
 
