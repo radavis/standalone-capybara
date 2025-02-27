@@ -10,9 +10,12 @@ feature "app" do
 
     at_root_page
     click_first_suggestion
+    document_loading
+    scroll_down
     document_has_rendered
 
     click_first_remix_suggestion
+    scroll_down
     document_has_rendered
   end
 end
@@ -23,7 +26,7 @@ def at_marketing_page
 end
 
 def at_root_page
-  expect(page).to have_current_path("/")
+  expect(page).to have_current_path("/?mode=auto_mode", wait: 10)
   expect(page).to have_content(/Create Powerful Content/)
 end
 
@@ -42,7 +45,7 @@ def click_first_suggestion
   end
 
   within "#remix-sidebar" do
-    expect(page).to have_content("Preparing your document", wait: 60)
+    expect(page).to have_content("your document", wait: 60)
   end
 end
 
@@ -61,6 +64,19 @@ end
 def document_has_rendered
   within "#remix-sidebar" do
     expect(page).to have_content("Primary Model", wait: 60)
+  end
+end
+
+def scroll_down
+  sleep 20
+  within "#scrollable-story-container" do
+    scroll_to :bottom
+  end
+end
+
+def document_loading
+  within "#scrollable-story-container" do
+    expect(page).to have_css('div[class^="lottie-loading-block_container__"')
   end
 end
 

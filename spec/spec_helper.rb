@@ -12,7 +12,7 @@ Capybara.register_driver :custom_chromium do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   # user_agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0'
   # user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:135.0) Gecko/20100101 Firefox/135.0'
-  user_agent = ENV["USER_AGENT"]
+  user_agent ||= ENV["USER_AGENT"]
 
   # https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_switches.cc
   [
@@ -29,7 +29,7 @@ Capybara.register_driver :custom_chromium do |app|
     "--disable-default-browser-promo",
     "--disable-login-screen-apps",
     "--ignore-user-profile-mapping-for-tests",
-    # "--headless",
+    "--headless",
     "--incognito",
     # "--no-sandbox",
     "--no-default-browser-check",
