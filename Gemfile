@@ -1,12 +1,10 @@
 source "https://rubygems.org"
 
 group :test do
-  gem "base64"
-  gem "capybara"
-  gem "dotenv"
-  gem "pry"
-  gem "rspec"
-  gem "rake"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "capybara", "~> 3.40"
+  gem "dotenv", "~> 3.1"
+  gem "pry", "~> 0.15"
+  gem "rspec", "~> 3.13"
+  gem "rake", "~> 13.2"
+  gem "selenium-webdriver", "~> 4.29"
 end
