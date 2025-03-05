@@ -41,7 +41,7 @@ def click_first_suggestion
   expect(page).to have_selector(".capitol-suggestions__options")
 
   within ".capitol-suggestions__options" do
-    find('.capitol-suggestion', match: :first).click
+    find('.capitol-suggestion', text: /^((?!logo).)*$/, match: :first).click  
   end
 
   within "#remix-sidebar" do
@@ -53,7 +53,7 @@ def click_first_remix_suggestion
   find('#remix-prompt', match: :first).click  # ambiguous match, lol
 
   within "#prompt-suggestions-container" do
-    find(".capitol-prompt-suggestions__suggestion-item", match: :first).click
+    find(".capitol-prompt-suggestions__suggestion-item", text: /^((?!logo).)*$/, match: :first).click
   end
 
   within "#remix-sidebar" do

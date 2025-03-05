@@ -84,7 +84,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 3.40)
   dotenv (~> 3.1)
-  pry (= 0.15)
+  pry (~> 0.15)
   rake (~> 13.2)
   rspec (~> 3.13)
   selenium-webdriver (~> 4.29)
